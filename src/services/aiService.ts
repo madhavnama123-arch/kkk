@@ -20,7 +20,9 @@ class AIService {
   private model: string;
 
   constructor() {
-    this.baseUrl = 'https://ocean-main.onrender.com/api';
+    // Use '/api' for local development, which Vite will proxy to localhost:3001
+    // Use the deployed URL for production builds
+    this.baseUrl = import.meta.env.DEV ? '/api' : 'https://ocean-main.onrender.com/api';
     this.model = 'gemini-1.5-flash';
   }
 
